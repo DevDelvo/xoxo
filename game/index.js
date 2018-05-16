@@ -23,3 +23,7 @@ export default function reducer(state = { board, turn: 'X' }, action) {
       return state
   }
 }
+
+export const winner = (board) => {
+
+}
