@@ -14,7 +14,7 @@ const printBoard = () => {
 }
 
 const getInput = player => async () => {
-  const {turn} = game.getState()  
+  const {turn, board} = game.getState()  
   if (turn !== player) return
   const ans = await inquirer.prompt([{
     type: 'input',
@@ -34,7 +34,6 @@ const game = createStore(gameReducer)
 game.subscribe(printBoard)
 game.subscribe(getInput('X'))
 game.subscribe(getInput('O'))
-
 // We dispatch a dummy START action to call all our
 // subscribers the first time.
 game.dispatch({ type: 'START' })
